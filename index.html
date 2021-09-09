@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" integrity="sha512-P9vJUXK+LyvAzj8otTOKzdfF1F3UYVl13+F8Fof8/2QNb8Twd6Vb+VD52I7+87tex9UXxnzPgWA3rH96RExA7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>Menu2</title>
         <style>
             .a_p0{
@@ -13,6 +14,9 @@
                 margin: 0px;
                 background: #bdcbe5;
                 font-family: Arial, Helvetica, sans-serif;
+                background-image: url("img/bg.jpg");
+                background-size: contain;
+                background-repeat: no-repeat;
             }
             header{ /* Elemnent Selector */
                 height: 300px;
@@ -24,18 +28,19 @@
                 height: 4000px;
                 border:1px dashed blue;
             }
-            footer{
+            footer{ /* element selector */
                 width: 100%;
                 height: 600px;
                 border:1px dashed green;
             }
             header > nav{ /* Child Selector > */
-                height: 68px;
+                height: 54px;
                 width: 80%;
                 background: #fff;
                 margin: auto;
                 border-radius: 10px;
                 box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.1); /* x y b s c */
+                clear: both;
             }
             header h1{ /* Decendent Selector*/
                 margin-top: 87px;
@@ -43,17 +48,13 @@
                 text-shadow: 0px 1px 1px #fff; /* x y b c */
                 text-align: center;
             }
-            header > nav > ul{
-                list-style: none;
-            }
             header > nav > ul > li{
                 float: left;
             }
             header > nav > ul > li > a{ /* a is a inline elelment -> block level elment */
-                text-decoration: none;
                 color: #a6a6a6;
                 display: block;
-                padding: 25px;
+                padding: 18px 25px; /* T/B   L/R */
                 border-right: 1px solid #d9d9d9;
             }
             .menu > li{
@@ -63,38 +64,111 @@
                 background: #fff;
                 padding-bottom: 32px;
             } 
-            .menu > li:hover .submenu{
+            li:hover > .submenu{
                 display: block;
             }
             .submenu{
                 display: none;
-                width: 294px;
+                width: 292px;
                 height: 335px;
                 background: #fff;
                 position: absolute;
-                top:75px;
+                top:62px;
                 left:0px;
                 border-radius: 10px;
                 border-top-left-radius: 0px;
-            }   
+            }  
+            .menu > li:nth-child(3) > a::after{ /* nth child selector pseudo element selector */
+                content: "▼";
+            }
+            .active{
+                color:#2B82D9;
+            }
+            .a_left{
+                float: left;
+            } 
+            .a_right{
+                float: right;
+            }
+            .a_m0{
+                margin: 0px;
+            }
+            .submenu > li > a{
+                display: block;
+                padding: 25px;
+                border-bottom: 1px solid #d9d9d9;
+                color:#a6a6a6;
+            }
+            ul{ /* element selector */
+                list-style: none;
+            }
+            a{/* element selector */
+                text-decoration: none;
+            }
+            .a_fr{
+                float: right;
+            }
+            .a_posiabso{
+                position: absolute;
+            }
+            .a_t0{
+                top:0px;
+            }
+            .a_l0{
+                left:0px;
+            }
+            .a_r0{
+                right: 0px;
+            }
+            .submenu2{
+                position: absolute;
+                left: 265px;
+                top:36px;
+                border-radius: 5px;
+                box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.1); /* x y b s c */
+            }
         </style>
     </head>
     <body>
         <header>
             <h1>Pure CSS3 Mega Menu</h1>
             <nav>
-                <ul class="a_p0 menu">
+                <ul class="a_p0 menu a_left a_m0">
                     <li>
                         <a href="#">Home</a>
                     </li>
-                    <li>
-                        <a href="#">Aboutus</a>
-                        <ul class="submenu">
-
+                    <li >
+                        <a class="active" href="#"><i class="fas fa-star"></i> Aboutus</a>
+                        <ul class="a_p0 submenu">
+                            <li>
+                                <a href="#">News <i class="fas fa-chevron-down a_fr"></i></a>
+                                <ul class="a_p0 submenu submenu2 a_posiabso a_t0 ">
+                                    <li>
+                                        <a href="#">Company</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Product</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Special</a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#">Portfolio</a>
+                        <a href="#"><i class="fas fa-briefcase"></i> Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-phone-alt"></i> Contacts</a>
+                    </li>
+                </ul>
+                <ul class="a_p0 menu a_right a_m0">
+                    <li>
+                        <a href="#"><i class="fas fa-briefcase"></i> Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-phone-alt"></i> Contacts</a>
                     </li>
                 </ul>
             </nav>
